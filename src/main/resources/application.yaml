@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: Climalert
+  mail:
+    host: HOST-EXAMPLE
+    port: PORT-EXAMPLE
+    username: USERNAME-EXAMPLE
+    password: PASSWORD-EXAMPLE
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+weather:
+  api:
+    key: API-KEY-EXAMPLE
+email:
+  alertas:
+    remitente: "noreply@climalert.com"
+    destinatarios: "admin@clima.com","emergencias@clima.com","metereologia@clima.com"
