@@ -18,4 +18,4 @@ weather:
 email:
   alertas:
     remitente: "noreply@climalert.com"
-    destinatarios: "admin@clima.com","emergencias@clima.com","metereologia@clima.com"
+    destinatarios: "admin@clima.com,emergencias@clima.com,metereologia@clima.com"
