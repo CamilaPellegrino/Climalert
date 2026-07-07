@@ -13,7 +13,7 @@ public class ClimaScheduler {
         this.climaService = climaService;
     }
 
-    @Scheduled(cron = "*/10 * * * * *")
+    @Scheduled(fixedRate = 300000)
     public void actualizarClima() {
         WeatherResponse weatherResponse = climaService.actualizarClima();
         System.out.println("Clima actualizado: "+weatherResponse.current().temp_c() + ", "+weatherResponse.current().humidity());

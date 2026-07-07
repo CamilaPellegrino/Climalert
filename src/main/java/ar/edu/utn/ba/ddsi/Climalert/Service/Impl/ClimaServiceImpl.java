@@ -29,13 +29,11 @@ public class ClimaServiceImpl implements ClimaService {
     }
 
     @Override
-    public boolean condicionCritica() {
-        WeatherResponse weatherResponse = this.getClima();
+    public boolean condicionCritica(WeatherResponse weatherResponse) {
         if(weatherResponse == null){
-            System.out.printf("No hay climas todavia");
             return false;
         }
-        //return weatherResponse.current().humidity()>60 && weatherResponse.current().temp_c() >35;
-        return true;
+        return weatherResponse.current().humidity()>60 && weatherResponse.current().temp_c() >35;
+        //return true;
     }
 }
