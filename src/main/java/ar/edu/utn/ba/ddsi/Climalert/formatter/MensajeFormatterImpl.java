@@ -4,7 +4,7 @@ import ar.edu.utn.ba.ddsi.Climalert.dto.WeatherResponse;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MailFormatterImpl implements MailFormatter{
+public class MensajeFormatterImpl implements MensajeFormatter{
     public String generarMensaje(WeatherResponse clima) {
         return String.format("""
                 ⚠️ ALERTA METEOROLÓGICA ⚠️

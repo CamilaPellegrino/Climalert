@@ -1,5 +1,6 @@
 package ar.edu.utn.ba.ddsi.Climalert.config;
 
+import ar.edu.utn.ba.ddsi.Climalert.Repositories.SubscriberRepository;
 import ar.edu.utn.ba.ddsi.Climalert.Service.Impl.NotificacionServiceImpl;
 import ar.edu.utn.ba.ddsi.Climalert.models.entities.MedioNotificacion;
 import ar.edu.utn.ba.ddsi.Climalert.models.entities.Subscriber;
@@ -18,12 +19,16 @@ public class NotificacionConfig {
     private List<String> destinatarios;
 
     @Bean
-    public CommandLineRunner inicializarSuscriptores(NotificacionServiceImpl notificacionService, Map<String, MedioNotificacion> medios) {
+    public CommandLineRunner inicializarSuscriptores(
+            SubscriberRepository subscriberRepository,
+            Map<String, MedioNotificacion> medios) {
+
         MedioNotificacion correo = medios.get("Correo");
+
         return args -> {
             destinatarios.forEach(direccion -> {
-                Subscriber suscriber = new Subscriber(direccion, correo);
-                notificacionService.suscribe(suscriber);
+                Subscriber subscriber = new Subscriber(direccion, correo);
+                subscriberRepository.subscribe(subscriber);
             });
         };
     }
