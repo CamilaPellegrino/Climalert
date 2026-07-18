@@ -1,11 +1,11 @@
 package ar.edu.utn.ba.ddsi.Climalert.formatter;
 
-import ar.edu.utn.ba.ddsi.Climalert.dto.WeatherResponse;
+import ar.edu.utn.ba.ddsi.Climalert.models.entities.Clima;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MensajeFormatterImpl implements MensajeFormatter{
-    public String generarMensaje(WeatherResponse clima) {
+    public String generarMensaje(Clima clima) {
         return String.format("""
                 ⚠️ ALERTA METEOROLÓGICA ⚠️
 

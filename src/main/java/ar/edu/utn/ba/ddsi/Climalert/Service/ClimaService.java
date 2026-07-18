@@ -1,9 +1,9 @@
 package ar.edu.utn.ba.ddsi.Climalert.Service;
 
-import ar.edu.utn.ba.ddsi.Climalert.dto.WeatherResponse;
+import ar.edu.utn.ba.ddsi.Climalert.models.entities.Clima;
 
 public interface ClimaService {
-    public WeatherResponse actualizarClima();
-    public WeatherResponse getClima();
-    public boolean condicionCritica(WeatherResponse weatherResponse);
+    public Clima actualizarClima();
+    public Clima getClima();
+    public boolean condicionCritica(Clima weatherResponse);
 }

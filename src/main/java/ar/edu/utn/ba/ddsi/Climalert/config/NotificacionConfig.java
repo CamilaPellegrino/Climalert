@@ -1,8 +1,7 @@
 package ar.edu.utn.ba.ddsi.Climalert.config;
 
 import ar.edu.utn.ba.ddsi.Climalert.Repositories.SubscriberRepository;
-import ar.edu.utn.ba.ddsi.Climalert.Service.Impl.NotificacionServiceImpl;
-import ar.edu.utn.ba.ddsi.Climalert.models.entities.MedioNotificacion;
+import ar.edu.utn.ba.ddsi.Climalert.models.entities.notificaciones.MedioNotificacion;
 import ar.edu.utn.ba.ddsi.Climalert.models.entities.Subscriber;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;

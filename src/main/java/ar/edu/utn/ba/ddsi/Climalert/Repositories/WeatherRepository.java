@@ -1,8 +1,8 @@
 package ar.edu.utn.ba.ddsi.Climalert.Repositories;
 
-import ar.edu.utn.ba.ddsi.Climalert.dto.WeatherResponse;
+import ar.edu.utn.ba.ddsi.Climalert.models.entities.Clima;
 
 public interface WeatherRepository {
-    void save(WeatherResponse weatherResponse);
-    WeatherResponse getClima();
+    void save(Clima weatherResponse);
+    Clima getClima();
 }

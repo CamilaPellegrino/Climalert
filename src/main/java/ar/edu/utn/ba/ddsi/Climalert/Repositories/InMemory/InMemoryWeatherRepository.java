@@ -1,26 +1,22 @@
 package ar.edu.utn.ba.ddsi.Climalert.Repositories.InMemory;
 
 import ar.edu.utn.ba.ddsi.Climalert.Repositories.WeatherRepository;
-import ar.edu.utn.ba.ddsi.Climalert.dto.WeatherResponse;
-import org.springframework.stereotype.Component;
+import ar.edu.utn.ba.ddsi.Climalert.models.entities.Clima;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 @Repository
 public class InMemoryWeatherRepository implements WeatherRepository {
 
-    private final List<WeatherResponse> weatherResponses = new ArrayList<>();
+    private final List<Clima> climas = new ArrayList<>();
 
     @Override
-    public void save(WeatherResponse weatherResponse) {
-        weatherResponses.add(weatherResponse);
+    public void save(Clima clima) {
+        climas.add(clima);
     }
 
     @Override
-    public WeatherResponse getClima() {
-        if (weatherResponses.isEmpty()) {
-            return null;
-        }
-        return weatherResponses.getLast();
+    public Clima getClima() {
+        return climas.isEmpty() ? null : climas.getLast();
     }
 }

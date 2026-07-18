@@ -1,6 +1,6 @@
-package ar.edu.utn.ba.ddsi.Climalert.dto;
+package ar.edu.utn.ba.ddsi.Climalert.models.entities;
 
-public record CurrentResponse(
+public record Current(
         String last_updated,
         double temp_c,
         double feelslike_c,

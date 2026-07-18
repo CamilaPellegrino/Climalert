@@ -1,7 +1,7 @@
 package ar.edu.utn.ba.ddsi.Climalert.Scheduler;
 
 import ar.edu.utn.ba.ddsi.Climalert.Service.ClimaService;
-import ar.edu.utn.ba.ddsi.Climalert.dto.WeatherResponse;
+import ar.edu.utn.ba.ddsi.Climalert.models.entities.Clima;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,9 +13,9 @@ public class ClimaScheduler {
         this.climaService = climaService;
     }
 
-    @Scheduled(fixedRate = 300000)
+    @Scheduled(fixedRate = 10000)
     public void actualizarClima() {
-        WeatherResponse weatherResponse = climaService.actualizarClima();
+        Clima weatherResponse = climaService.actualizarClima();
         System.out.println("Clima actualizado: "+weatherResponse.current().temp_c() + ", "+weatherResponse.current().humidity());
     }
 }
