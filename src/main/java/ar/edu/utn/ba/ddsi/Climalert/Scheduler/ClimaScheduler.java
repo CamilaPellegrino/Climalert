@@ -1,4 +1,4 @@
-package ar.edu.utn.ba.ddsi.Climalert.Schedule;
+package ar.edu.utn.ba.ddsi.Climalert.Scheduler;
 
 import ar.edu.utn.ba.ddsi.Climalert.Service.ClimaService;
 import ar.edu.utn.ba.ddsi.Climalert.dto.WeatherResponse;

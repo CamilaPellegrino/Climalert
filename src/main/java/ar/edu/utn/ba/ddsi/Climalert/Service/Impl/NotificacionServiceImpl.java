@@ -1,39 +1,34 @@
 package ar.edu.utn.ba.ddsi.Climalert.Service.Impl;
 
 import ar.edu.utn.ba.ddsi.Climalert.Service.NotificacionService;
-import ar.edu.utn.ba.ddsi.Climalert.dto.NotificacionRequest;
-import ar.edu.utn.ba.ddsi.Climalert.dto.NotificacionResponse;
 import ar.edu.utn.ba.ddsi.Climalert.models.entities.MedioNotificacion;
+import ar.edu.utn.ba.ddsi.Climalert.models.entities.Subscriber;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 @Service
 @Getter
 public class NotificacionServiceImpl implements NotificacionService {
+    private final List<Subscriber> suscribers;
 
-    private final Map<String, MedioNotificacion> medios;
-    private final String remitente;
-    private final List<String> destinatarios;
-
-    public NotificacionServiceImpl(Map<String, MedioNotificacion> medios
-            , @Value("${email.alertas.remitente}") String remitente
-            , @Value("#{'${email.alertas.destinatarios}'.split(',')}") List<String> destinatarios) {
-        this.remitente = remitente;
-        this.destinatarios = destinatarios;
-        this.medios = medios;
+    public NotificacionServiceImpl() {
+        this.suscribers = new ArrayList<>();
     }
 
-    public void enviar(String mensaje, String medioString) {
-        MedioNotificacion medio = medios.get(medioString);
+    public void enviar(String mensaje) {
+        suscribers.forEach(suscriber -> suscriber.notificar(mensaje));
+    }
 
-        if (medio == null) {
-            throw new IllegalArgumentException("Medio no soportado: " + medioString);
-        }
+    public void suscribe(Subscriber suscriber) {
+        suscribers.add(suscriber);
+    }
 
-        medio.enviar(this.getDestinatarios(), mensaje);
+    public void unsuscribe(Subscriber suscriber) {
+        suscribers.remove(suscriber);
     }
 }
