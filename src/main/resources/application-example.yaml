@@ -1,7 +1,9 @@
 spring:
   application:
     name: Climalert
+    testing: true
   mail:
+    active: false
     host: HOST-EXAMPLE
     port: PORT-EXAMPLE
     username: USERNAME-EXAMPLE
@@ -19,3 +21,7 @@ email:
   alertas:
     remitente: "noreply@climalert.com"
     destinatarios: "admin@clima.com,emergencias@clima.com,metereologia@clima.com"
+
+cron.alertas: 60000
+cron.notificacion: 60000
+cron.clima: 300000

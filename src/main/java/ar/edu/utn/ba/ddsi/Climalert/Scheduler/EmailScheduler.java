@@ -12,7 +12,7 @@ public class EmailScheduler {
         this.notificacionService = notificacionService;
     }
 
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRateString = "${cron.notificacion}")
     public void notificar() {
         System.out.println("Enviando notificaciones");
         notificacionService.notificar();

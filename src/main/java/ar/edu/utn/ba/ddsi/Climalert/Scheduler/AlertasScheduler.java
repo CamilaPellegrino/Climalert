@@ -22,7 +22,7 @@ public class AlertasScheduler {
         this.alertasService = alertasService;
     }
 
-    @Scheduled(fixedRate = 10000) // 1 minuto
+    @Scheduled(fixedRateString = "${cron.alertas}")// 1 minuto
     public void generarAlertas() {
         Clima clima = climaService.getClima();
         if(clima != null && (climaService.condicionCritica(clima) || testing)){
