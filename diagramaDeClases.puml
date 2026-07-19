@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface MedioNotificacion{
+    --
+    + enviar(notificacion, destinatario): bool
+}
+
+class Correo implements MedioNotificacion{
+    - mailSender: JavaMailSender
+    --
+    + enviar(notificacion, destinatario): bool
+}
+
+class Notificacion {
+    - id: Long
+    - subscriber: Subscriber
+    - remitente: String
+    - asunto: String
+    - contenido: String
+    - enviado: bool
+    - intentos: int
+    __
+    + enviar(): boolean
+}
+
+class Subscriber{
+    - canal: Canal
+    --
+    + notificar(Notificacion): boolean
+    + elegirCanal(): Canal
+}
+
+class Canal{
+    - direccion: String
+    - medio: MedioNotificacion
+    --
+    + notificar(Notificacion): boolean
+}
+
+Subscriber --> Canal
+Canal --> MedioNotificacion
+Notificacion --> Subscriber
+
+@enduml

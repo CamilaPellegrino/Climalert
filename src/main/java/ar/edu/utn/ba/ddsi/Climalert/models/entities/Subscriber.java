@@ -1,16 +1,22 @@
 package ar.edu.utn.ba.ddsi.Climalert.models.entities;
 
+import ar.edu.utn.ba.ddsi.Climalert.models.entities.notificaciones.Canal;
 import ar.edu.utn.ba.ddsi.Climalert.models.entities.notificaciones.MedioNotificacion;
+import ar.edu.utn.ba.ddsi.Climalert.models.entities.notificaciones.Notificacion;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
 public class Subscriber {
-    private final String direccion;
-    private final MedioNotificacion medio;
+    private Canal canal; // podria tener varios canales
 
-    public void notificar(String asunto, String remitente, String contenido){
-        medio.enviar(this.direccion, asunto, remitente, contenido);
+    public boolean notificar(Notificacion notificacion){
+        Canal canal = this.elegirCanal();
+        return canal != null && canal.notificar(notificacion);
+    }
+
+    public Canal elegirCanal(){
+        return this.canal;
     }
 }

@@ -15,6 +15,7 @@ public class Notificacion {
     private String asunto;
     private String contenido;
     private boolean enviado;
+    private int intentos;
 
     public Notificacion(Subscriber subscriber, String remitente, String asunto, String contenido) {
         this.subscriber = subscriber;
@@ -22,10 +23,12 @@ public class Notificacion {
         this.asunto = asunto;
         this.contenido = contenido;
         this.enviado = false;
+        this.intentos = 0;
     }
 
-    public void enviar() {
-        subscriber.notificar(asunto, remitente, contenido);
-        this.enviado = true;
+    public boolean enviar() {
+        this.intentos += 1;
+        this.enviado = subscriber.notificar(this);
+        return this.enviado;
     }
 }

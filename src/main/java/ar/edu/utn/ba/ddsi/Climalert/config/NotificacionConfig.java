@@ -1,6 +1,7 @@
 package ar.edu.utn.ba.ddsi.Climalert.config;
 
 import ar.edu.utn.ba.ddsi.Climalert.Repositories.SubscriberRepository;
+import ar.edu.utn.ba.ddsi.Climalert.models.entities.notificaciones.Canal;
 import ar.edu.utn.ba.ddsi.Climalert.models.entities.notificaciones.MedioNotificacion;
 import ar.edu.utn.ba.ddsi.Climalert.models.entities.Subscriber;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,7 +27,7 @@ public class NotificacionConfig {
 
         return args -> {
             destinatarios.forEach(direccion -> {
-                Subscriber subscriber = new Subscriber(direccion, correo);
+                Subscriber subscriber = new Subscriber(new Canal(correo, direccion));
                 subscriberRepository.subscribe(subscriber);
             });
         };

@@ -17,15 +17,21 @@ public class Correo implements MedioNotificacion {
     }
 
     @Override
-    public boolean enviar(String destinatario, String asunto, String remitente, String contenido) {
+    public boolean enviar(Notificacion notificacion, String destinatario) {
         if(active){
-            SimpleMailMessage mail = new SimpleMailMessage();
-            mail.setTo(destinatario);
-            mail.setSubject(asunto);
-            mail.setText(contenido);
-            mail.setFrom(remitente);
+            try {
+                SimpleMailMessage mail = new SimpleMailMessage();
+                mail.setTo(destinatario);
+                mail.setSubject(notificacion.getAsunto());
+                mail.setText(notificacion.getContenido());
+                mail.setFrom(notificacion.getRemitente());
 
-            mailSender.send(mail);
+                mailSender.send(mail);
+            }
+            catch(Exception e) {
+                System.out.println("## Error al enviar mail a " + destinatario);
+                return false;
+            }
         }
 
         System.out.println("## Mail enviado a " + destinatario);
