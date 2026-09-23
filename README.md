@@ -10,10 +10,10 @@ inusuales. Para esta primera iteración solamente consideraremos como “alerta�
 - La ubicación consultada será fija (por ejemplo: CABA).
 - Cada 5 minutos, el Sistema deberá obtener los datos climáticos actuales y almacenarlos localmente para registro histórico y análisis posterior.
 
-3. Procesamiento de alertas meteorológicas
+2. Procesamiento de alertas meteorológicas
 - Cada 1 minuto, el Sistema deberá analizar la última información disponible del clima.
 - Si se detectan condiciones críticas deberá generarse una alerta (ver siguiente punto).
-4. Notificación por correo electrónico
+3. Notificación por correo electrónico
 - Al generarse una alerta, el Sistema deberá enviar un correo a los siguientes destinatarios:
   - admin@clima.com
   - emergencias@clima.com
@@ -22,4 +22,4 @@ inusuales. Para esta primera iteración solamente consideraremos como “alerta�
 
 
 > [!NOTE]
-> Para ejecutar ClimaAlert es necesario configurar las credenciales de los servicios externos.
+> Para ejecutar ClimaAlert es necesario configurar los datos de acceso a los servicios externos.
