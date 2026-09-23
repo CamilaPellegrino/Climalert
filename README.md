@@ -1,4 +1,4 @@
-# 🌦️ ClimaAlert
+# ClimaAlert
 
 Sistema de monitoreo climático y envío automático de alertas. Climalert funcionará como un servicio autónomo, 
 sin interfaz gráfica, cuya responsabilidad es conectarse periódicamente a un proveedor meteorológico externo, procesar los datos recibidos 
